@@ -1,7 +1,6 @@
 package com.example.ui_temp.view
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ui_temp.databinding.RecyclerItem1Binding
