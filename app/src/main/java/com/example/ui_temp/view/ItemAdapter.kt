@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ui_temp.databinding.RecyclerItem1Binding
+import com.example.ui_temp.viewmodel.Item1ViewModel
 
-class ItemAdapter(private val viewModels: List<Item1ViewModel>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(private val viewModels: List<Item1ViewModel>) :
+    RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -14,6 +16,7 @@ class ItemAdapter(private val viewModels: List<Item1ViewModel>) : RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        //TODO: positionによってviewModelを変える
         val viewModel = viewModels[position]
         holder.binding.viewModel = viewModel
     }
