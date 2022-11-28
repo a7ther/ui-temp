@@ -28,7 +28,6 @@ class Menu1Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = bindingWeak.get() ?: return
-        viewModel.createTab()
         binding.tabViewPager.adapter = Manu1TabAdapter(this, viewModel)
         TabLayoutMediator(
             binding.tabLayout,
