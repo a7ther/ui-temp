@@ -28,9 +28,9 @@ class Menu1TabFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = bindingWeak.get() ?: return
         val recyclerView = binding.recyclerView
-        val item1viewModels = viewModel.fetchItems()
+        val itemViewModels = viewModel.fetchItems()
 
-        recyclerView.adapter = ItemAdapter(item1viewModels)
+        recyclerView.adapter = ItemAdapter(itemViewModels)
     }
 
 }
