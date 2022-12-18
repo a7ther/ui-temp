@@ -1,11 +1,11 @@
-package com.example.ui_temp.viewmodel
+package com.example.ui_temp.viewmodel.menu1.tab.item
 
 import androidx.lifecycle.ViewModel
 
 abstract class AbstractItemViewModel : ViewModel() {
     enum class ViewType(val value: Int) {
         FIRST(0),
-        OTHER(1),
+        NORMAL(1),
         LAST(2),
         UNKNOWN(999);
 

@@ -6,12 +6,12 @@
     app:startDestination="@id/nav_menu1">
     <fragment
         android:id="@+id/nav_menu1"
-        android:name="com.example.ui_temp.view.Menu1Fragment"
+        android:name="com.example.ui_temp.view.menu1.Menu1Fragment"
         android:label="@string/title1"
-        tools:layout="@layout/fragment_menu1"></fragment>
+        tools:layout="@layout/fragment_menu1" />
     <fragment
         android:id="@+id/nav_menu2"
-        android:name="com.example.ui_temp.view.Menu2Fragment"
+        android:name="com.example.ui_temp.view.menu2.Menu2Fragment"
         android:label="@string/title2"
-        tools:layout="@layout/fragment_menu2"></fragment>
+        tools:layout="@layout/fragment_menu2" />
 </navigation>

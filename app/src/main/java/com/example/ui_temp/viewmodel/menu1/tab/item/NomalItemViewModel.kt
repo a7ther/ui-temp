@@ -1,10 +1,10 @@
-package com.example.ui_temp.viewmodel
+package com.example.ui_temp.viewmodel.menu1.tab.item
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class Item1ViewModel() : AbstractItemViewModel() {
-    override val viewType = ViewType.OTHER
+class NomalItemViewModel() : AbstractItemViewModel() {
+    override val viewType = ViewType.NORMAL
     private val _text = MutableStateFlow("hashCode : ${hashCode()}")
     val text: StateFlow<String> = _text
 }

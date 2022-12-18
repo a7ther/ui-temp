@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="viewModel3"
-            type="com.example.ui_temp.viewmodel.Item3ViewModel" />
+            name="viewModel"
+            type="com.example.ui_temp.viewmodel.menu1.tab.item.LastItemViewModel" />
 
     </data>
 
@@ -17,7 +17,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel3.text}" />
+            android:text="@{viewModel.buttonText}" />
 
 
     </LinearLayout>

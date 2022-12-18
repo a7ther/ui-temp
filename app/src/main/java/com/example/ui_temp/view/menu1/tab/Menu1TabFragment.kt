@@ -1,4 +1,4 @@
-package com.example.ui_temp.view
+package com.example.ui_temp.view.menu1.tab
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.ui_temp.databinding.FragmentMenu1TabBinding
-import com.example.ui_temp.viewmodel.Menu1TabViewModel
+import com.example.ui_temp.view.menu1.tab.item.ItemAdapter
+import com.example.ui_temp.viewmodel.menu1.tab.Menu1TabViewModel
 import java.lang.ref.WeakReference
 
 class Menu1TabFragment : Fragment() {
@@ -18,7 +19,7 @@ class Menu1TabFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentMenu1TabBinding.inflate(inflater, container, false)
         bindingWeak = WeakReference(binding)
         return binding.root

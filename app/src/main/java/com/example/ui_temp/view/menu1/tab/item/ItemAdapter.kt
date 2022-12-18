@@ -1,16 +1,16 @@
-package com.example.ui_temp.view
+package com.example.ui_temp.view.menu1.tab.item
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ui_temp.databinding.RecyclerItem1Binding
-import com.example.ui_temp.databinding.RecyclerItem2Binding
-import com.example.ui_temp.databinding.RecyclerItem3Binding
-import com.example.ui_temp.viewmodel.AbstractItemViewModel
-import com.example.ui_temp.viewmodel.Item1ViewModel
-import com.example.ui_temp.viewmodel.Item2ViewModel
-import com.example.ui_temp.viewmodel.Item3ViewModel
+import com.example.ui_temp.databinding.RecyclerMenu1ItemFirstBinding
+import com.example.ui_temp.databinding.RecyclerMenu1ItemLastBinding
+import com.example.ui_temp.databinding.RecyclerMenu1ItemNormalBinding
+import com.example.ui_temp.viewmodel.menu1.tab.item.AbstractItemViewModel
+import com.example.ui_temp.viewmodel.menu1.tab.item.FirstItemViewModel
+import com.example.ui_temp.viewmodel.menu1.tab.item.LastItemViewModel
+import com.example.ui_temp.viewmodel.menu1.tab.item.NomalItemViewModel
 
 class ItemAdapter(private val viewModels: List<AbstractItemViewModel>) :
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
@@ -23,17 +23,17 @@ class ItemAdapter(private val viewModels: List<AbstractItemViewModel>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = when (AbstractItemViewModel.ViewType.toViewType(viewType)) {
-            AbstractItemViewModel.ViewType.FIRST -> RecyclerItem2Binding.inflate(
+            AbstractItemViewModel.ViewType.FIRST -> RecyclerMenu1ItemFirstBinding.inflate(
                 inflater,
                 parent,
                 false
             )
-            AbstractItemViewModel.ViewType.OTHER -> RecyclerItem1Binding.inflate(
+            AbstractItemViewModel.ViewType.NORMAL -> RecyclerMenu1ItemNormalBinding.inflate(
                 inflater,
                 parent,
                 false
             )
-            AbstractItemViewModel.ViewType.LAST -> RecyclerItem3Binding.inflate(
+            AbstractItemViewModel.ViewType.LAST -> RecyclerMenu1ItemLastBinding.inflate(
                 inflater,
                 parent,
                 false
@@ -44,16 +44,15 @@ class ItemAdapter(private val viewModels: List<AbstractItemViewModel>) :
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        //TODO: positionによってviewModelを変える
         when (val b = holder.binding) {
-            is RecyclerItem2Binding -> {
-                b.viewModel2 = viewModels[position] as Item2ViewModel
+            is RecyclerMenu1ItemFirstBinding -> {
+                b.viewModel = viewModels[position] as FirstItemViewModel
             }
-            is RecyclerItem1Binding -> {
-                b.viewModel1 = viewModels[position] as Item1ViewModel
+            is RecyclerMenu1ItemNormalBinding -> {
+                b.viewModel = viewModels[position] as NomalItemViewModel
             }
-            is RecyclerItem3Binding -> {
-                b.viewModel3 = viewModels[position] as Item3ViewModel
+            is RecyclerMenu1ItemLastBinding -> {
+                b.viewModel = viewModels[position] as LastItemViewModel
             }
         }
     }

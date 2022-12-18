@@ -1,4 +1,4 @@
-package com.example.ui_temp.viewmodel
+package com.example.ui_temp.viewmodel.menu1
 
 import androidx.lifecycle.ViewModel
 

@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="viewModel2"
-            type="com.example.ui_temp.viewmodel.Item2ViewModel" />
+            name="viewModel"
+            type="com.example.ui_temp.viewmodel.menu1.tab.item.FirstItemViewModel" />
 
     </data>
 
@@ -18,14 +18,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel2.text}"
+            android:text="@{viewModel.text}"
             android:textColor="@color/teal_200"
             tools:text="text1" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel2.text2}"
+            android:text="@{viewModel.text2}"
             android:textColor="@color/teal_200"
             tools:text="text2" />
 

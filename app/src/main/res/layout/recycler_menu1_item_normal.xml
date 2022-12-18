@@ -5,15 +5,15 @@
     <data>
 
         <variable
-            name="viewModel1"
-            type="com.example.ui_temp.viewmodel.Item1ViewModel" />
+            name="viewModel"
+            type="com.example.ui_temp.viewmodel.menu1.tab.item.NomalItemViewModel" />
 
     </data>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@{viewModel1.text}"
+        android:text="@{viewModel.text}"
         tools:text="text1" />
 
 </layout>
