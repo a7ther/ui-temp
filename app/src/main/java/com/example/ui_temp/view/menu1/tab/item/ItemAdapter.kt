@@ -4,13 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ui_temp.databinding.RecyclerMenu1ItemCarouselBinding
 import com.example.ui_temp.databinding.RecyclerMenu1ItemFirstBinding
 import com.example.ui_temp.databinding.RecyclerMenu1ItemLastBinding
 import com.example.ui_temp.databinding.RecyclerMenu1ItemNormalBinding
-import com.example.ui_temp.viewmodel.menu1.tab.item.AbstractItemViewModel
-import com.example.ui_temp.viewmodel.menu1.tab.item.FirstItemViewModel
-import com.example.ui_temp.viewmodel.menu1.tab.item.LastItemViewModel
-import com.example.ui_temp.viewmodel.menu1.tab.item.NomalItemViewModel
+import com.example.ui_temp.view.menu1.tab.item.carousel.CarouselItemAdapter
+import com.example.ui_temp.viewmodel.menu1.tab.item.*
 
 class ItemAdapter(private val viewModels: List<AbstractItemViewModel>) :
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
@@ -38,7 +37,12 @@ class ItemAdapter(private val viewModels: List<AbstractItemViewModel>) :
                 parent,
                 false
             )
-            else -> throw IllegalArgumentException("")
+            AbstractItemViewModel.ViewType.CAROUSEL -> RecyclerMenu1ItemCarouselBinding.inflate(
+                inflater,
+                parent,
+                false
+            )
+            AbstractItemViewModel.ViewType.UNKNOWN -> throw IllegalArgumentException("")
         }
         return ItemViewHolder(binding)
     }
@@ -49,10 +53,14 @@ class ItemAdapter(private val viewModels: List<AbstractItemViewModel>) :
                 b.viewModel = viewModels[position] as FirstItemViewModel
             }
             is RecyclerMenu1ItemNormalBinding -> {
-                b.viewModel = viewModels[position] as NomalItemViewModel
+                b.viewModel = viewModels[position] as NormalItemViewModel
             }
             is RecyclerMenu1ItemLastBinding -> {
                 b.viewModel = viewModels[position] as LastItemViewModel
+            }
+            is RecyclerMenu1ItemCarouselBinding -> {
+                val vms = viewModels[position] as CarouselItemViewModel
+                b.nestRecyclerView.adapter = CarouselItemAdapter(vms.itemViewModels)
             }
         }
     }

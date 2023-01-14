@@ -1,19 +1,20 @@
 package com.example.ui_temp.viewmodel.menu1.tab
 
 import androidx.lifecycle.ViewModel
-import com.example.ui_temp.viewmodel.menu1.tab.item.AbstractItemViewModel
-import com.example.ui_temp.viewmodel.menu1.tab.item.FirstItemViewModel
-import com.example.ui_temp.viewmodel.menu1.tab.item.LastItemViewModel
-import com.example.ui_temp.viewmodel.menu1.tab.item.NomalItemViewModel
+import com.example.ui_temp.viewmodel.menu1.tab.item.*
+import kotlinx.coroutines.delay
 
 class Menu1TabViewModel : ViewModel() {
 
-    fun fetchItems(): List<AbstractItemViewModel> {
+    suspend fun fetchItems(): List<AbstractItemViewModel> {
+        //ネットワーク通信を想定したdelay
+        delay(1_000L)
         return mutableListOf<AbstractItemViewModel>().apply {
             add(FirstItemViewModel())
+            add(CarouselItemViewModel())
             val max = (0..100).random()
             for (i in 0..max) {
-                add(NomalItemViewModel())
+                add(NormalItemViewModel())
             }
             add(LastItemViewModel())
         }.toList()

@@ -6,9 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.ui_temp.databinding.FragmentMenu1TabBinding
 import com.example.ui_temp.view.menu1.tab.item.ItemAdapter
 import com.example.ui_temp.viewmodel.menu1.tab.Menu1TabViewModel
+import kotlinx.coroutines.launch
 import java.lang.ref.WeakReference
 
 class Menu1TabFragment : Fragment() {
@@ -29,9 +33,14 @@ class Menu1TabFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = bindingWeak.get() ?: return
         val recyclerView = binding.recyclerView
-        val itemViewModels = viewModel.fetchItems()
 
-        recyclerView.adapter = ItemAdapter(itemViewModels)
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                val itemViewModels = viewModel.fetchItems()
+                recyclerView.adapter = ItemAdapter(itemViewModels)
+            }
+        }
+
     }
 
 }

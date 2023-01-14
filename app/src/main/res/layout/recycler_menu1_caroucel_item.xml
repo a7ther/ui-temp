@@ -6,14 +6,18 @@
 
         <variable
             name="viewModel"
-            type="com.example.ui_temp.viewmodel.menu1.tab.item.NormalItemViewModel" />
+            type="com.example.ui_temp.viewmodel.menu1.tab.item.carousel.ItemViewModel" />
 
     </data>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:layout_margin="2dp"
         android:text="@{viewModel.text}"
+        android:background="@color/teal_700"
+        android:textColor="@color/white"
         tools:text="text1" />
 
 </layout>

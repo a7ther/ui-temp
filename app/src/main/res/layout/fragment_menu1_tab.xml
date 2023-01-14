@@ -11,6 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:spanCount="3"
+        tools:itemCount="5"
+        tools:listitem="@layout/recycler_menu1_item_normal" />
 
 </FrameLayout>

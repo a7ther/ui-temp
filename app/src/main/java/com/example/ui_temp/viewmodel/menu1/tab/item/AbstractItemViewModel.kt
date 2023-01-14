@@ -7,6 +7,7 @@ abstract class AbstractItemViewModel : ViewModel() {
         FIRST(0),
         NORMAL(1),
         LAST(2),
+        CAROUSEL(3),
         UNKNOWN(999);
 
         companion object {
